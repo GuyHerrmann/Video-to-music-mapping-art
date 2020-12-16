@@ -9,9 +9,10 @@ Config = {
     DEBUG = False
 }
 
-C_IMAGEPROC = {
+C_ImageProc = {
      N_HIST = 10,
-     THRESHOLD = 200
+     THRESHOLD = 200,
+     CONTOUR_SIZE_THRESH = 60
 }
 #class Config:
 #    def __init__(self, xdim=1080, ydim=1920, colour='gs',  xmap=14, ymap=32, DEBUG=False):
