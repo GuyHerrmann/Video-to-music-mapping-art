@@ -1,3 +1,4 @@
+#!
 from Extract_frames import video
 from image_processing import process, sort
 from config import Config
@@ -19,9 +20,12 @@ for frame in video:
     with open('output/values.csv', 'a') as file:
         file.write(sorted_extract)
 
+#I think that we will come into some problems here in terms of time : constantly opening and closing a file
+# Things should probably be written one at a time... maybe make a pandas file and append to csv.?
+''
 
 #main code will be looping through the frames of the video
 #Then, get each frame, call function that applies filters and
 #returns the values that are needed in the right format
 #Then calls a function that will print the thing onto csv? not too sure :)
-#Perform stuff
+#Perform stuf

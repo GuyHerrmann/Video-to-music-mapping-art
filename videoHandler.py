@@ -3,19 +3,19 @@ import os
 
 class Video:
     def __init__(self, path):
-        #test path exists
-        try:
-            self._handler = cv2.VideoCapture(path)
-        except:
-            raise Exception('Path does not exist')
-            #Something to destroy the function here
+        #test path exist
+        self._handler = cv2.VideoCapture(path)
         self.path = path
         self.current_frame = 0
 
     def __iter__(self):
         self.current_frame = 0
         return self
-    #I think that above doesn't do anythin
+    
+    def ret_FrameRate(self):
+        return self._handler.get(cv2.CAP_PROP_FPS)
+    #I think that above doesn't do anythinls
+    
     def __next__(self):
         r, self._frame = self._handler.read()
         self.frame = cv2.cvtColor(self._frame, cv2.COLOR_BGR2GRAY)
@@ -30,3 +30,4 @@ class Video:
 
     def __del__(self):
         self._handler.release()
+    
